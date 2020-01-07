@@ -1,7 +1,7 @@
 {
-  "name": "straightas",
+  "name": "photogram",
   "version": "1.0.0",
-  "description": "Aplikacija za pomoc pri organizaciji studentskih obveznosti",
+  "description": "Aplikacija za deljenje slik",
   "main": "app.js",
   "scripts": {
     "test": "karma start --single-run",
@@ -9,11 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/mz9337/tpo-lp4.git"
+    "url": "git+ssh://git@github.com:sziva/frontend.git"
   },
-  "author": "Vanesa Gradišar, živa Škof, Matic Anzič, Miha Zadravec",
+  "author": "živa Škof, Blaž Kugovič",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/mz9337/tpo-lp4#readme",
+  "homepage": "git@github.com:sziva/frontend.git",
   "dependencies": {
     "angular": "^1.7.8",
     "angular-mocks": "^1.7.8",
