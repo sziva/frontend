@@ -1,23 +1,12 @@
 (function() {
     var images = function($http) {
-        // var getTodo = function(idImage, idUser) {
-        //     return $http.get('api/users/' + idUser + '/todo/' + idTodo);
+
+        // var putComment = function() {
+        //     return $http.put('http://localhost/....');
         // };
 
-        // var getTodoList = function(idUser) {
-        //     return $http.get('api/users/' + idUser + '/todo');
-        // };
-
-        // var postTodo = function(idUser, todo) {
-        //     return $http.post('api/users/' + idUser + '/todo/', todo);
-        // };
-
-        // var putTodo = function(idUser, todo) {
-        //     return $http.put('api/users/' + idUser + '/todo/' + todo._id, todo);
-        // };
-
-        // var deleteTodo = function(idUser, todo) {
-        //     return $http.delete('api/users/' + idUser + '/todo/' + todo._id, todo);
+        // var deleteComment = function() {
+        //     return $http.delete('http://localhost/...');
         // };
 
         var getImages = function() {
@@ -28,13 +17,30 @@
         var postImage = function(){
             return $http.post('http://localhost/....');
         }
+
+        var getComments = function(){
+            return $http.get('http://localhost/....');
+        }
+
+        var postComment = function(){
+             return $http.post('http://localhost/....');
+        }
+
+        var getLikes = function(){
+             return $http.get('http://localhost/....');
+        }
+
+        var postLike = function(){
+             return $http.post('http://localhost/....');
+        }
+        
         return {
             getImages: getImages,
-            // getTodo: getTodo,
-            // getTodoList: getTodoList,
-            postImage: postImage
-            // putTodo: putTodo,
-            // deleteTodo: deleteTodo
+            postImage: postImage,
+            getComments: getComments,
+            postComment: postComment,
+            getLikes: getLikes,
+            postLike:postLike
         }
     };
 
