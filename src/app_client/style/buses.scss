@@ -1,0 +1,123 @@
+.buses {
+    h4 {
+        margin-bottom: 20px;
+    }
+    table {
+        // position: relative;
+        // margin-bottom: 20px;
+    }
+
+    .bus-table {
+   //  	position: relative;
+   //      margin-bottom: 20px;
+   //      // border: 1px solid #dbdbdb;
+
+   //      color: #495057;
+
+   //      thead {
+			// background-color: #d3dde7;
+
+			// th {
+			// 	border: 0px solid #C67AF8;
+			// }
+   //      }
+
+   		border: 1px solid #dbdbdb;
+		
+		border-collapse: collapse;
+    	border-spacing: 0;
+		width: 100%;
+
+    	thead {
+			background-color: #eeeeee; 
+			
+			th {
+				border: 1px solid #ababab;
+				padding: 10px;
+				text-align: center;
+				font-weight: bold;
+				width: 16%;
+			}
+		}
+
+		tbody {
+			background-color: white;
+
+			tr {
+				td{
+					border: 1px solid #ababab;
+					border-collapse: collapse;
+					padding: 5px 10px;
+
+					text-align: left;
+
+					&:first-child {
+						text-align: center;
+
+						// font-weight: bold;
+					}
+
+					&:not(:first-child) {
+					    text-align: left;
+					}
+
+				}
+
+				&:nth-child(even) {
+					background-color: #fafafa;
+				}
+			}
+
+		}
+    }
+
+	.stop-searcher {
+		position: relative;
+		margin-top: 40px;
+
+		.searchResults {
+			position: absolute;
+			z-index: 100;
+			border: 1px solid #ced4da;
+			background-color: white;
+			max-height: 400px;
+			overflow-y: auto;
+			border-radius: .25rem;
+			padding: .375rem .75rem;
+			width: 100%;
+
+	    	.searchResult {
+				cursor: pointer;
+
+				padding: 5px 0px;
+
+				p {
+					margin-bottom: 0px;
+					line-height: 34px;
+				}
+
+				.line {
+					width: 100%;
+					height: 0px;
+					border: 1px solid black;
+					border-color: white;
+
+					-webkit-transition: border-color 250ms ease-in-out;
+					-moz-transition: border-color 250ms ease-in-out;
+					-o-transition: border-color 250ms ease-in-out;
+					transition: border-color 250ms ease-in-out;	
+				}
+
+				&:hover {
+					.line {
+						border-color: #C67AF8;
+						-webkit-transition: border-color 250ms ease-in-out;
+						-moz-transition: border-color 250ms ease-in-out;
+						-o-transition: border-color 250ms ease-in-out;
+						transition: border-color 250ms ease-in-out;		
+					}
+				}
+	    	}
+	    }
+	}
+}

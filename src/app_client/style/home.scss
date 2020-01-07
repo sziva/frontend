@@ -1,0 +1,11 @@
+.home-page {
+	.container-fluid {
+		padding-left: 50px;
+		padding-right: 50px;
+
+		@media only screen and (max-width: 768px) {
+			padding-left: 15px;
+			padding-right: 15px;			
+		}
+	}
+}
