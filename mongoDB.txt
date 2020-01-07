@@ -1,0 +1,465 @@
+use Straightas 
+
+db.user.insert({
+	_id: ObjectId(),
+	name:"Živa",
+	surname:"Škof",
+	email:"zivasm@gmail.com",
+	pswd:"ziva123",
+	role:"user",
+	to_do:[
+		{
+			_id: ObjectId(),
+			description:"naredi MongoDB",
+			insertion_date:"02-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			description:"uči TPO",
+			insertion_date:"02-05-2019"
+		}
+	],
+	calendar:[
+		{
+			_id: ObjectId(),
+			name:"Škisova tržnica",
+			time:"20:00",
+			duration:6,
+			description:"dobimo se na Bavarskem dvoru",
+			date:"2019-05-08", 
+			insertion_date:"02-05-2019"	
+		},
+		{
+			_id: ObjectId(),
+			name:"Majske igre",
+			time:"17:00",
+			duration:8,
+			description:"V Rožni dolini",
+			date:"2019-05-02", 
+			insertion_date:"03-05-2019"	
+		}
+	],
+	time_table:[
+		{
+			_id: ObjectId(),
+			name:"TPO",
+			duration:3,
+			day:"cetrtek",
+			colour:"#cfff00",
+			time:9,
+			insertion_date:"02-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"TPO vaje",
+			duration:2,
+			day:"petek",
+			colour:"#731d1d",
+			time:15,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"PUI",
+			duration:3,
+			day:"cetrtek",
+			colour:"#323c4d",
+			time:12,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"PUI vaje",
+			duration:2,
+			day:"sreda",
+			colour:"#794044",
+			time:14,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"OO",
+			duration:3,
+			day:"torek",
+			colour:"#ffd39b",
+			time:14,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"OO vaje",
+			duration:2,
+			day:"sreda",
+			colour:"#ffe4c4",
+			time:10,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"DS",
+			duration:2,
+			day:"petek",
+			colour:"#794044",
+			time:12,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"Plavanje",
+			duration:1,
+			day:"ponedeljek",
+			colour:"#cfff00",
+			time:20,
+			insertion_date:"03-05-2019"
+		}
+	]
+})
+
+db.events.insert({
+	_id: ObjectId(),
+	name:"Večer družabnih iger",
+	organizer:"Študentski svet FRI",
+	description:"Dogodek bo na Fakulteti za računalništvo in informatiko, v stavbi X.",
+	date:"20-05-2019",
+	insertion_date:"02-05-2019"	
+})
+
+db.administrator.insert({
+	_id: ObjectId(),
+	message:"Aplikacija bo zaradi posodobitev od 03:00 do 03:45 nedostopna.",
+	insertion_date:"02-05-2019"	
+})
+
+db.user.insert({
+	_id: ObjectId(),
+	name:"Miha",
+	surname:"Zadravec",
+	email:"zadravecmiha987@gmail.com",
+	pswd:"Miha123",
+	role:"user",
+	to_do:[
+		{
+			_id: ObjectId(),
+			description:"dokončaj PSP sprint",
+			insertion_date:"02-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			description:"uči TPO",
+			insertion_date:"02-05-2019"
+		}
+	],
+	calendar:[
+		{
+			_id: ObjectId(),
+			name:"Škisova tržnica",
+			time:"20:00",
+			duration:6,
+			description:"dobimo se na Bavarskem dvoru",
+			date:"09-05-2019", 
+			insertion_date:"02-05-2019"	
+		},
+		{
+			_id: ObjectId(),
+			name:"Majske igre",
+			time:"17:00",
+			duration:8,
+			description:"V Rožni dolini",
+			date:"07-05-2019", 
+			insertion_date:"03-05-2019"	
+		}
+	],
+	time_table:[
+		{
+			_id: ObjectId(),
+			name:"TPO",
+			duration:3,
+			day:"cetrtek",
+			colour:"#731d1d",
+			time:9,
+			insertion_date:"02-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"TPO vaje",
+			duration:2,
+			day:"petek",
+			colour:"#323c4d",
+			time:15,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"RIS",
+			duration:3,
+			day:"ponedeljek",
+			colour:"#794044",
+			time:11,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"RIS vaje",
+			duration:2,
+			day:"cetrtek",
+			colour:"#ffd39b",
+			time:12,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"PSP",
+			duration:3,
+			day:"ponedeljek",
+			colour:"#ffe4c4",
+			time:16,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"PSP vaje",
+			duration:2,
+			day:"sreda",
+			colour:"#794044",
+			time:8,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"DS",
+			duration:2,
+			day:"petek",
+			colour:"#cfff00",
+			time:12,
+			insertion_date:"03-05-2019"
+		}
+	]
+})
+
+db.user.insert({
+	_id: ObjectId(),
+	name:"Matic",
+	surname:"Anžič",
+	email:"matic.anzic@gmail.com",
+	pswd:"Arsenal123",
+	role:"user",
+	to_do:[
+		{
+			_id: ObjectId(),
+			description:"dokončaj PSP sprint",
+			insertion_date:"02-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			description:"uči TPO",
+			insertion_date:"02-05-2019"
+		}
+	],
+	calendar:[
+		{
+			_id: ObjectId(),
+			name:"Škisova tržnica",
+			time:"20:00",
+			duration:6,
+			description:"dobimo se na Bavarskem dvoru",
+			date:"09-05-2019", 
+			insertion_date:"02-05-2019"	
+		},
+		{
+			_id: ObjectId(),
+			name:"Majske igre",
+			time:"17:00",
+			duration:8,
+			description:"V Rožni dolini",
+			date:"07-05-2019", 
+			insertion_date:"03-05-2019"	
+		}
+	],
+	time_table:[
+		{
+			_id: ObjectId(),
+			name:"TPO",
+			duration:3,
+			day:"cetrtek",
+			colour:"#731d1d",
+			time:9,
+			insertion_date:"02-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"TPO vaje",
+			duration:2,
+			day:"petek",
+			colour:"#323c4d",
+			time:15,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"PUI",
+			duration:3,
+			day:"sreda",
+			colour:"#794044",
+			time:12,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"PUI vaje",
+			duration:2,
+			day:"sreda",
+			colour:"#ffd39b",
+			time:14,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"PSP",
+			duration:3,
+			day:"ponedeljek",
+			colour:"#ffe4c4",
+			time:16,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"PSP vaje",
+			duration:2,
+			day:"sreda",
+			colour:"#794044",
+			time:8,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"DS",
+			duration:2,
+			day:"petek",
+			colour:"#cfff00",
+			time:12,
+			insertion_date:"03-05-2019"
+		}
+	]
+})
+
+db.user.insert({
+	_id: ObjectId(),
+	name:"Vanesa",
+	surname:"Gradišar",
+	email:"vanesa.gradisar@gmail.com",
+	pswd:"vanesa123",
+	role:"user",
+	to_do:[
+		{
+			_id: ObjectId(),
+			description:"dokončaj PSP sprint",
+			insertion_date:"02-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			description:"uči TPO",
+			insertion_date:"02-05-2019"
+		}
+	],
+	calendar:[
+		{
+			_id: ObjectId(),
+			name:"Škisova tržnica",
+			time:20,
+			duration:6,
+			description:"dobimo se na Bavarskem dvoru",
+			date:"09-05-2019", 
+			insertion_date:"02-05-2019"	
+		},
+		{
+			_id: ObjectId(),
+			name:"Majske igre",
+			time:17,
+			duration:8,
+			description:"V Rožni dolini",
+			date:"07-05-2019", 
+			insertion_date:"03-05-2019"	
+		}
+	],
+	time_table:[
+		{
+			_id: ObjectId(),
+			name:"TPO",
+			duration:3,
+			day:"cetrtek",
+			colour:"#731d1d",
+			time:9,
+			insertion_date:"02-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"TPO vaje",
+			duration:2,
+			day:"petek",
+			colour:"#323c4d",
+			time:15,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"OIM",
+			duration:3,
+			day:"torek",
+			colour:"#794044",
+			time:11,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"OIM vaje",
+			duration:2,
+			day:"sreda",
+			colour:"#ffd39b",
+			time:8,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"PSP",
+			duration:3,
+			day:"ponedeljek",
+			colour:"#ffe4c4",
+			time:16,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"PSP vaje",
+			duration:2,
+			day:"sreda",
+			colour:"#794044",
+			time:8,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"DS",
+			duration:2,
+			day:"petek",
+			colour:"#ffd39b",
+			time:12,
+			insertion_date:"03-05-2019"
+		},
+		{
+			_id: ObjectId(),
+			name:"Odbojka",
+			duration:2,
+			day:"torek",
+			colour:"#794044",
+			time:18,
+			insertion_date:"03-05-2019"
+		}
+	]
+})
+
+
+
+
+
+//https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/
+//https://www.youtube.com/watch?v=ZXzIiR5fk2Q
