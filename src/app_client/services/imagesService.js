@@ -25,11 +25,14 @@
             return $http.get('http://localhost/asd');
         }
 
+        var postImage = function(){
+            return $http.post('http://localhost/....');
+        }
         return {
-            getImages: getImages
+            getImages: getImages,
             // getTodo: getTodo,
             // getTodoList: getTodoList,
-            // postTodo: postTodo,
+            postImage: postImage
             // putTodo: putTodo,
             // deleteTodo: deleteTodo
         }
