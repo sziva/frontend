@@ -8,35 +8,53 @@
         vm.images = [
             {
                 id: 1,
-                url: 'http://www.skuner.si/wp-content/uploads/2015/02/umetniske0062.jpg'
+                url: 'http://www.skuner.si/wp-content/uploads/2015/02/umetniske0062.jpg',
+                likes: 4
+                comments = [
+                    {
+                        id: 1,
+                        comment: 'Odlićna fotografija'
+                    },
+                    {
+                        id: 2,
+                        comment: 'Odlićna fotografija je zelo lepa'       
+                    },
+                ]
             },
             {
                 id: 2,
-                url: 'http://www.osnovnasolasostro.si/ucenci/13-14/9a_Perkovic_Luka/www/slike/VESOLJE3.jpg'
+                url: 'http://www.osnovnasolasostro.si/ucenci/13-14/9a_Perkovic_Luka/www/slike/VESOLJE3.jpg',
+                likes: 6
             },
             {
                 id: 3,
-                url: 'https://vesolje.net/navtika/novice/2009/02/ngc2818.jpg'
+                url: 'https://vesolje.net/navtika/novice/2009/02/ngc2818.jpg',
+                likes: 5
+                comment = [
+                    {
+                        id: 1,
+                        comment: 'Odlićna fotografija RES'
+                    }
+                ]
             }
         ];
 
-        vm.comments = [
-            {
-                id: 1,
-                id_image: 1,
-                comment: 'Odlićna fotografija'
-            },
-            {
-                id: 2,
-                id_image: 1,
-                comment: 'Odlićna fotografija je zelo lepa'       
-            },
-            {
-                id: 3,
-                id_image: 2,
-                comment: 'Tudi jaz imam jadernico'
-            }
-        ];
+        // vm.likes = [
+        //     {
+        //         id: 1,
+        //         id_image: 1,
+        //         like: 3
+        //     {
+        //         id: 2,
+        //         id_image: 2,
+        //         like: 15    
+        //     },
+        //     {
+        //         id: 3,
+        //         id_image: 2,
+        //         like: 4
+        //     }
+        // ];
         
         // ODKOMENTIRI!!!!
         // vm.images = {}
@@ -113,7 +131,6 @@
             $('#showImageCommentModal').modal("show");
             // vm.showImageInfo();
         }
-
         vm.newCommentAdd = function(){
             vm.inputError = "";
             $('#showImageCommentModal').modal("show");
