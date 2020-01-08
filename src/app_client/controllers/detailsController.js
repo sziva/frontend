@@ -3,7 +3,19 @@
     function detailsController($route, imagesService) {
         var dm = this;
 
-        dm.comments = {}
+        dm.comments = [
+            {
+                id: 1,
+                comment: 'Odlićna fotografija'
+            },
+            {
+                id: 2,
+                comment: 'Odlićna fotografija je zelo lepa'            },
+            {
+                id: 3,
+                comment: 'Tudi jaz imam jadernico'
+            }
+        ];
         dm.likes = {}
 
         dm.newComment = function(){
@@ -25,7 +37,7 @@
           }
         }
 
-        dm.getImages();
+        dm.getComments();
 
         dm.createComment = function() {
           dm.image.insertion_date = new Date();
@@ -54,14 +66,28 @@
           );  
         }
 
-        dm.newCommentSdd = function(){
-          dm.inputError = "";
-          $('#newcatalogModal').modal("show");
+        // dm.newCommentAdd = function(){
+        //   dm.inputError = "";
+        //   $('#showImageModal').modal("show");
+        // }
+
+       
+        dm.showComments = function(){
+          $('#showImageModal').modal("show");
+          imagesService.getComments().then(
+            function success(response) {
+                dm.message = response.data.length > 0 ? "" : "Ne najdem virov.";
+                dm.events = response.data;
+            }, function error(response) {
+                dm.message = "Prišlo je do napake!";
+            }
+          );
         }
 
         dm.closeNew = function(){
-          $('#newcatalogModal').modal("hide");
+          $('#showImageModal').modal("hide");
         }
+
     }
 
     detailsController.$inject = ['$route', 'imagesService'];
@@ -69,5 +95,4 @@
     angular
         .module('photogram')
         .controller('detailsController', detailsController);
-
 })();

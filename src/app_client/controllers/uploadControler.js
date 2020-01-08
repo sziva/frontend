@@ -49,17 +49,19 @@
                         showConfirmButton: false,
                         timer: 1000
                     });
+                    console.log(response.e);
+                    um.closeNew();
                 }
             );  
         }
 
-        um.newTodoAdd = function(){
+        um.newImageAdd = function(){
           um.inputError = "";
-          $('#newcatalogModal').modal("show");
+          $('#newImageModel').modal("show");
         }
 
         um.closeNew = function(){
-          $('#newcatalogModal').modal("hide");
+          $('#newImageModel').modal("hide");
         }
     }
 

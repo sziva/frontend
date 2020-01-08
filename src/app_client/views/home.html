@@ -11,9 +11,8 @@
 		<div class="row">
 			<div class="catalog">
 				<div class="buttons">
-					<div class="plusGumb button plus-button" ng-click="vm.newcatalogAdd()">+</div>
+					<div class="plusGumb button plus-button" data-toggle="modal" data-target="#newImageModel" ng-click="um.newImageAdd()">+</div>
 				</div>
-
 				<div class="catalog-list-container">
 					<div class="catalog-list"  ng-repeat="image in vm.images">
 						<div class="thumbnail" ng-click="vm.openImage(image)">
@@ -22,29 +21,25 @@
 					</div>
 				</div>
 				
-				<!-- NEW catalog -->
-				<div class="modal fade catalog-form-modal" id="newcatalogModal" role="dialog">
+				<!-- NEW image -->
+				<div class="modal fade catalog-form-modal" id="newImageModel" role="dialog">
 				    <div class="modal-dialog">
 				        <div class="modal-content">
 				            <div class="modal-header">
 				                <h4 class="modal-title">Naloži sliko</h4>
 				            </div>
-				            <form action="/action_page.php">
-								<input type="file" name="myFile"><br><br>
-							</form>
 				            <div class="modal-body">
-				                <label>
-				                    <p class="label-txt"><i class="fa fa-pencil"></i>Opis</p><br>	                    
-			                    	<input type="text" class="input" id="imecatalog" ng-model="vm.catalog.description" required>
+				                <label>               
+									<input type="file" name="myImage" accept="image/*"><br><br>
 				                    <div class="line-box">
 			                            <div class="line"></div>
 			                        </div>
-			                        <span ng-show="vm.inputError" class="help-block validation-text">{{ vm.inputError }}</span>
+			                        <span ng-show="um.inputError" class="help-block validation-text">{{ um.inputError }}</span>
 				                </label>
 				            </div>
 				            <div class="modal-footer modals">
-				                <button type="submit" id="dodajcatalog" class="btn btn-default" ng-click="vm.newcatalog()">Dodaj</button>
-				                <button type="button" class="btn btn-default" ng-click="vm.closeNew()">Prekliči</button>
+				                <button type="submit" id="dodajImage" class="btn btn-default" ng-click="um.newImage()">Dodaj</button>
+				                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="um.closeNew()">Prekliči</button>
 				            </div>
 				        </div>
 				    </div>
@@ -58,9 +53,18 @@
 				        		<img src="{{ vm.currentImage.url }}" alt="" style="width:100%">
 				        	</div>
 				            <div class="modal-header">
-				                <h4 class="modal-title">Komentarji</h4>
+				                <div class="buttons">
+									<div class="plusGumb button plus-button" data-toggle="modal" data-target="#newImageModel" ng-click="um.newImageAdd()"><3</div>
+								</div>
 				            </div>
 				            <div class="modal-body">
+				            	<div ng-repeat="comments in dm.comments.slice().reverse()">
+			                    	<label>
+			                    		<div class="row">	                    		
+			                    			<p class="label-txt"><i class="fa fa-bell-o" ></i>{{ comments.comment }}</p>	                    		
+			                    		</div>
+			                    	</label>	                    	
+		                    	</div>	      
 				                <label>
 				                    <p class="label-txt"><i class="fa fa-pencil"></i>Dodaj komentar</p><br>
 			                    	<input type="text" class="input" id="novoImecatalog" ng-model="vm.currentcatalog.description">
@@ -76,25 +80,7 @@
 					    </div>
 					</div>
 				</div>
-
-				<!-- On DELETE -->
-				<div class="modal fade catalog-form-modal" id="deletecatalogModal" role="dialog">
-				    <div class="modal-dialog">
-				        <div class="modal-content">
-				            <div class="modal-header">
-				                <h6 class="modal-title">Ali ste prepričani, da želite izbrisati sliko</h6>
-				            </div>
-				            <div class="modal-footer modals">
-				                <button type="submit" id="izbrisicatalog" class="btn btn-default" ng-click="vm.deletecatalog()">Da</button>
-				                <button type="button" class="btn btn-default" ng-click="vm.closeDelete()">Prekliči</button>
-				            </div>
-				        </div>
-				    </div>
-				</div>
 			</div>
-
 		</div>
 	</div>
 </div>
-
-
