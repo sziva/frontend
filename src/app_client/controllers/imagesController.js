@@ -19,11 +19,27 @@
                 url: 'https://vesolje.net/navtika/novice/2009/02/ngc2818.jpg'
             }
         ];
+
+        vm.comments = [
+            {
+                id: 1,
+                id_image: 1,
+                comment: 'Odlićna fotografija'
+            },
+            {
+                id: 2,
+                id_image: 1,
+                comment: 'Odlićna fotografija je zelo lepa'       
+            },
+            {
+                id: 3,
+                id_image: 2,
+                comment: 'Tudi jaz imam jadernico'
+            }
+        ];
         
         // ODKOMENTIRI!!!!
-
         // vm.images = {}
-
         // vm.getImages = function() {
         //     imagesService.getImages().then(
         //         function success(response) {
@@ -42,15 +58,82 @@
 
         // vm.getImages();
 
-        // DO TUKI!!!!
+        vm.newComment = function(){
+            var error = false;
+            vm.inputError = "";
+            vm.formError = "";
 
+            if(!vm.todo.description){
+                vm.inputError = "Dodaj komentar!";
+                error = true;
+            }
+
+            if (error) {
+                vm.formError = "Komentar ni vnešen!";
+                return false;
+            } else {
+                vm.createComment();
+            }
+        }
+
+        vm.createComment = function() {
+            vm.image.insertion_date = new Date();
+            imagesService.postComment(vm.id, vm.text).then(
+                function success(response) {
+                    vm.message = "Uspešno objavljen komentar.";
+                    Swal.fire({
+                        text: vm.message,
+                        type: 'success',
+                        showConfirmButton: false,
+                        timer: 1000
+                    });
+                    vm.showComments();
+                    vm.comments = {};
+                    vm.commentsList.push(response);
+                    vm.closeNew();
+                } , function error(response) {
+                    vm.message = "Prišlo je do napake!";
+                    Swal.fire({
+                        text: vm.message,
+                        type: 'error',
+                        showConfirmButton: false,
+                        timer: 1000
+                    });
+                }
+            );  
+        }
+       
+        vm.showComment = function(comment){
+            vm.currentComment = comment;
+            $('#showImageCommentModal').modal("show");
+        }
 
         vm.openImage = function(image) {
             vm.currentImage = image;
-            
-            $('#showImageModal').modal("show");
+            $('#showImageCommentModal').modal("show");
             // vm.showImageInfo();
         }
+
+        vm.newCommentAdd = function(){
+            vm.inputError = "";
+            $('#showImageCommentModal').modal("show");
+        }
+
+        vm.closeNew = function(){
+            $('#showImageModal').modal("hide");
+        }
+
+         // vm.showComments = function(){
+        //     $('#showImageModal').modal("show");
+        //     imagesService.getComments().then(
+        //         function success(response) {
+        //             dm.message = response.data.length > 0 ? "" : "Ne najdem virov.";
+        //             dm.events = response.data;
+        //         }, function error(response) {
+        //             dm.message = "Prišlo je do napake!";
+        //         }
+        //     );
+        // }
 
         // vm.showImageInfo = function() {
         //     $('#updateTodoModal').modal("show");
@@ -144,61 +227,8 @@
     //           );  
     //       }
 
-        // vm.deleteTodo = function() {
-    //           todoService.deleteTodo(vm.idUser, vm.currentTodo).then(
-    //               function success(response) {
-    //                   vm.message = "Uspešno izbrisana slika.";
-    //                   Swal.fire({
-    //                       text: vm.message,
-    //                       type: 'success',
-    //                       showConfirmButton: false,
-    //                       timer: 1000
-    //                   });
-    //                   vm.closeDelete();
-    //               }, function error(response) {
-    //                   vm.message = "Prišlo je do napake!";
-    //                   Swal.fire({
-    //                       text: vm.message,
-    //                       type: 'error',
-    //                       showConfirmButton: false,
-    //                       timer: 1000
-    //                   });
-    //               }
-    //           );  
-    //           vm.currentContainer.fadeOut(300, function() { $(this).remove(); });
-        // }
-    //       vm.showTodoList();
+        
 
-    //       vm.newTodoAdd = function(){
-    //           vm.inputError = "";
-    //           $('#newTodoModal').modal("show");
-    //       }
-
-    //       vm.closeNew = function(){
-    //           $('#newTodoModal').modal("hide");
-    //       }
-
-    //       vm.openUpdateTodo = function(currentTodo){
-    //           vm.currentTodo = currentTodo;
-    //           vm.tmp.description = currentTodo.description;
-    //           $('#updateTodoModal').modal("show");
-    //       }
-
-    //       vm.closeUpdate = function(){
-    //           var obj = $filter('filter')(vm.todoList, {_id: vm.currentTodo._id}, true)[0];
-    //           obj.description = vm.tmp.description;
-    //           $('#updateTodoModal').modal("hide");
-    //       }
-
-    //       vm.openDeleteTodo = function($event, currentTodo){
-    //           vm.currentTodo = currentTodo;
-    //           vm.currentContainer = $($event.currentTarget).closest('.todo-list');
-    //           $('#deleteTodoModal').modal("show");
-    //       }
-
-    //       vm.closeDelete = function(){
-    //           $('#deleteTodoModal').modal("hide");
-    //       }
     }
 
     imagesController.$inject = ['$route', 'imagesService'];
