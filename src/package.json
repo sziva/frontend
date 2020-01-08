@@ -14,7 +14,7 @@
   "license": "ISC",
   "homepage": "git@github.com:sziva/frontend.git",
   "dependencies": {
-    "angular": "^1.7.8",
+    "angular": "^1.7.9",
     "angular-mocks": "^1.7.8",
     "angular-notification-icons": "^1.0.0",
     "async": "^2.6.2",
