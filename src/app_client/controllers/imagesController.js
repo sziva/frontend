@@ -140,6 +140,36 @@
             $('#showImageModal').modal("hide");
         }
 
+        vm.showLike = function(like){
+            vm.currentLike = like;
+            $('#showImageCommentModal').modal("show");
+        }
+
+        vm.updateLike = function(){
+          imagesService.putLike(vm.id, vm.like).then(
+              function success(response) {
+                  vm.message = "Like je zabeležen.";
+                  Swal.fire({
+                      text: vm.message,
+                      type: 'success',
+                      showConfirmButton: false,
+                      timer: 1000
+                  });
+                  vm.closeNew();
+                  vm.showLike();
+                  vm.currentLike = like + 1;
+              }, function error(response) {
+                  vm.message = "Prišlo je do napake!";
+                  Swal.fire({
+                      text: vm.message,
+                      type: 'error',
+                      showConfirmButton: false,
+                      timer: 1000
+                  });
+              }
+          );
+        }    
+
          // vm.showComments = function(){
         //     $('#showImageModal').modal("show");
         //     imagesService.getComments().then(

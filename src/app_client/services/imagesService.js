@@ -30,8 +30,8 @@
              return $http.get('http://localhost/....');
         }
 
-        var postLike = function(){
-             return $http.post('http://localhost/....');
+        var putLike = function(){
+             return $http.put('http://localhost/....');
         }
         
         return {
@@ -40,7 +40,7 @@
             getComments: getComments,
             postComment: postComment,
             getLikes: getLikes,
-            postLike:postLike
+            putLike:putLike
         }
     };
 
