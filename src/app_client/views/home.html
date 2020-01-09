@@ -11,7 +11,7 @@
 		<div class="row">
 			<div class="catalog">
 				<div class="buttons">
-					<div class="plusGumb button plus-button" data-toggle="modal" data-target="#showImageModal" ng-click="um.newImageAdd()">+</div>
+					<div class="plusGumb button plus-button" data-toggle="modal" data-target="#showImageModal" ng-click="vm.newImageAdd()">+</div>
 				</div>
 				<div class="catalog-list-container">
 					<div class="catalog-list"  ng-repeat="image in vm.images">
@@ -25,7 +25,8 @@
 				<div class="modal fade catalog-form-modal" id="showImageModal" role="dialog">
 				    <div class="modal-dialog">
 				        <div class="modal-content">
-				        	<form action="https://pot do mikrostoritve" method="POST" style="all: unset;">
+				        	<!-- <form action="http://pot do mikrostoritve" method="POST" style="all: unset;"> -->
+				        	<form  style="all: unset;">
 					            <div class="modal-header"
 					                <h4 class="modal-title">Naloži sliko</h4>
 					            </div>
@@ -35,19 +36,19 @@
 					                    <div class="line-box">
 				                            <div class="line"></div>
 				                        </div>
-				                        <!-- <span ng-show="um.inputError" class="help-block validation-text">{{ um.inputError }}</span> -->
+				                        <!-- <span ng-show="vm.inputError" class="help-block validation-text">{{ vm.inputError }}</span> -->
 					                </label>
 					            </div>
 					            <div class="modal-footer modals">
-					                <button type="submit" id="dodajImage" class="btn btn-default" ng-click="um.newImage()">Dodaj</button>
-					                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="um.closeNew()">Prekliči</button>
+					                <button type="submit" id="dodajImage" class="btn btn-default" ng-click="vm.newImage()" data-dismiss="modal">Dodaj</button>
+					                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.closeNew()">Prekliči</button>
 					            </div>
 					        </form>
 				        </div>
 				    </div>
 				</div>
 
-				<!-- UPDATE catalog -->
+				<!-- DETAIL catalog -->
 				<div class="modal fade catalog-form-modal" id="showImageCommentModal" role="dialog">
 				    <div class="modal-dialog">
 				        <div class="modal-content">
@@ -55,9 +56,21 @@
 				        		<img src="{{ vm.currentImage.url }}" alt="" style="width:100%">
 				        		<div class="buttons">
 				        			<div class="row">	
-										<div class="plusGumb button plus-button" data-toggle="modal" data-target="#showImageCommentModal" ng-click="vm.updateLike()"><3</div> 
-
-										<p class="label-txt">{{ image.like }}</p>	
+										<div class="plusGumb button plus-button" data-toggle="modal" data-target="#showImageCommentModal" ng-click="vm.updateLike()"><3</div>   
+											
+										<!-- <div class="plusGumb button plus-button" data-toggle="modal" data-target="#showImageCommentModal" ng-repeat="like in vm.currentImage.like" ng-click="vm.updateLike()"><3<br><p class="label-txt">{{ like.like }}</p></div>  	 -->
+					                     
+									</div> 
+								</div>
+				        	</div>
+				        	<div class="modal-header">
+				        		<div class="buttons">
+				        			<div class="row">	
+										<div ng-repeat="like in vm.currentImage.like">     
+											<div  class="row">	           		
+				                    			<p class="label-txt">{{ like.like }}</p>
+				                    		</div>		                    		                   	
+					                    </div>  
 									</div> 
 								</div>
 				        	</div>
@@ -65,7 +78,7 @@
 				               <h4 class="modal-title">Komentarji</h4>
 				            </div>
 				            <div class="modal-body">
-				            	<div ng-repeat="comment in vm.comments.slice().reverse()">
+				            	<div ng-repeat="comment in vm.currentImage.comment.slice().reverse()">
 			                    	<label>
 			                    		<div class="row">	                    		
 			                    			<p class="label-txt">{{ comment.comment }}</p>	                    		
@@ -81,8 +94,8 @@
 				                </label>
 				            </div>
 				            <div class="modal-footer modals">
-				                <button type="submit" id="uredicatalog" class="btn btn-default" ng-click="vm.updatecatalog()">Dodaj</button>
-				                <button type="button" class="btn btn-default" ng-click="vm.closeUpdate()">Prekliči</button>
+				                <button type="submit" id="uredicatalog" class="btn btn-default" ng-click="vm.newComment()" data-dismiss="modal">Dodaj</button>
+				                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.closeNew()">Prekliči</button>
 				            </div>
 					    </div>
 					</div>
